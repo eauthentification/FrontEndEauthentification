@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="card rounded-0">
+         <div class="card-header">
+  
+      <h2>User Login</h2>
+      <form #Registerform = "ngForm" (ngSubmit)="registerUser()">
+          
+         
+        <div class="form-group">
+          <label for="first_Name">Firstname:</label>
+          <input type="text" class="form-control"  placeholder="Enter firstname" name="first_Name" [(ngModel)]="user.first_Name"  #first_Name="ngModel" required
+          [class.is-invalid]="first_Name.invalid && first_Name.touched"
+          >
+          <small class="text-danger"[class.d-none]="first_Name.valid || first_Name.untouched">Firstname is required field</small>
+        </div>
+        <div class="form-group">
+            <label for="last_Name">Lastname:</label>
+            <input type="text" class="form-control"  placeholder="Enter lastname" name="last_Name" [(ngModel)]="user.last_Name"  #last_Name="ngModel" required
+            [class.is-invalid]="last_Name.invalid && last_Name.touched"
+            >
+            <small class="text-danger"[class.d-none]="last_Name.valid || last_Name.untouched">lastname is required field</small>
+          </div>
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="username" class="form-control"  placeholder="Enter username" name="username" [(ngModel)]="user.username"  #username="ngModel" required
+            [class.is-invalid]="username.invalid && username.touched"
+            >
+            <small class="text-danger"[class.d-none]="username.valid || username.untouched">Username is required field</small>
+          </div>
+          <div class="form-group">
+            <label for="email_Id">EmailId:</label>
+            <input type="email_Id" class="form-control"  placeholder="Enter email_Id" name="email_Id" [(ngModel)]="user.email_Id" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" 
+            #email_Id="ngModel"
+            [class.is-invalid]="email_Id.invalid && email_Id.touched"
+            >
+            <small class="text-danger"[class.d-none]="email_Id.valid || email_Id.untouched">Email is required field</small>
+          </div>
+          <div class="form-group">
+            <label for="mobile_No">Mobileno:</label>
+            <input type="mobile_No" class="form-control"  placeholder="Enter mobileno" name="mobile_No" [(ngModel)]="user.mobile_No"  #mobile_No="ngModel" required
+            [class.is-invalid]="mobile_No.invalid && mobile_No.touched"
+            >
+            <small class="text-danger"[class.d-none]="mobile_No.valid || mobile_No.untouched">Mobileno is required field</small>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="text" class="form-control"  placeholder="Enter gender" name="gender" [(ngModel)]="user.gender" #gender="ngModel" required 
+            [class.is-invalid]="gender.invalid && gender.touched"
+            >
+            <small class="text-danger"[class.d-none]="gender.valid || gender.untouched">Gender is required field</small>
+          </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control"  placeholder="Enter password" name="password" [(ngModel)]="user.password"  #password="ngModel" required
+            [class.is-invalid]="password.invalid && password.touched"
+            >
+            <small class="text-danger"[class.d-none]="password.valid || password.untouched">Password is required field</small>
+          </div>
+          
+        
+        <button 
+        [disabled]="Registerform.invalid" type ="submit"
+        class="btn btn-primary">Register<i class="fas fa-sign-in-alt"></i>
+      </button>
+     
+      <!--<small class="float-right" (click)="gotoregister()">New user ? register here</small>-->
+      <small class="float-right btextual" [routerLink]="['/login']">Existing user ? Login here</small>
+    </form>
+</div>
+
+    
+  
