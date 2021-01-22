@@ -11,24 +11,29 @@ import {  Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 user  = new User();
 msg='';
+
   constructor(private _service : RegistrationService,private _router:Router) { }
 
-  ngOnInit(): void {
+  
+  ngOnInit() { 
   }
-
-  loginUser(){
-    this._service.loginUserFromRemote(this.user).subscribe(
-    data => {
-      console.log("response recieved");
-      this._router.navigate(['/authentication'])
-    },
-    error =>{
-       console.log("exception occured");
-       this.msg="Bad Credentials please enter valid username and password";
+    
+       loginUser(){
+        this._service.loginUserFromRemote(this.user).subscribe(
+        data => {
+          console.log("response recieved");
+          sessionStorage['username']=this.user.username;
+         
+         this._router.navigate(['/authentication'])
+        },
+        error =>{
+           console.log("exception occured");
+           this.msg="Bad Credentials please enter valid username and password";
+        }
+        )
+      }
+      gotoregister(){
+        this._router.navigate(['/register'])
+      }
     }
-    )
-  }
-  gotoregister(){
-    this._router.navigate(['/register'])
-  }
-}
+  

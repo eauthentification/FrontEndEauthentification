@@ -8,13 +8,20 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { OtpverificationComponent } from './otpverification/otpverification.component';
+import { QrcodeverificationComponent } from './qrcodeverification/qrcodeverification.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    OtpverificationComponent,
+    QrcodeverificationComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +29,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     HttpClientModule,
     AppRoutingModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

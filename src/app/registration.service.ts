@@ -7,22 +7,21 @@ import{ HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegistrationService {
-  
-
   constructor(private _http : HttpClient) { }
  
  
   public loginUserFromRemote(user:User):Observable<any>{
-    return this._http.post<any>("http://localhost:8080/login",user)
+    return this._http.post<any>("http://localhost:9090/login",user)
 
   }
   public registerUserFromRemote(user:User):Observable<any>{
-    return this._http.post<any>("http://localhost:8080/register",user)
-
-  }
-  handleError(error: Response){
+    return this._http.post<any>("http://localhost:9090/register",user)
 
   }
   
 
+  handleError(error: Response){
+  }
+  
+  
 }
